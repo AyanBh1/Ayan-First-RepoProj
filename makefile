@@ -1,2 +1,4 @@
 Readme.md: guessinggame.sh
-	bash CreateReadme.sh
+	echo "Guessing Game Project" > Readme.md
+	date >> Readme.md
+	wc -l guessinggame.sh >> Readme.md

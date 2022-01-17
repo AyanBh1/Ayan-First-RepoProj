@@ -5,20 +5,17 @@ function test_num()
 {
   local offset=0
   local num=$(eval ls | wc -l)
-  local high=`expr $num + 2`
-  local low=`expr $num - 2`
-  echo "test_num() guess number expected between $high and $low"
 
   if [[ $1 -eq $num ]]
   then
     echo "Congratulations, $1 number of files guess is correct"
-  elif [[ $1 -le $num ]] && [[ $1 -ge $low ]]
+  elif [[ $1 -le $num ]] && [[ $1 -ge 0 ]]
   then
-    echo "The Guess $1 is slightly off the mark"
+    echo "The Guess $1 is too low"
     let offset=1
-  elif [[ $1 -ge $num ]] && [[ $1 -le $high ]]
+  elif [[ $1 -ge $num ]]
   then
-    echo "The Guess $1 is slightly off the mark"
+    echo "The Guess $1 is too high"
     let offset=1
   else
     echo "The guess $1 is long way off the mark"
